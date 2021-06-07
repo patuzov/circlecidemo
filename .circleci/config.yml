@@ -5,6 +5,8 @@ jobs:
       - image: circleci/node
     steps:
       - checkout # check out the code in the project directory
+      - run: wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+      - run: apt-get update && apt install --yes ./google-chrome-stable_current_amd64.deb
       - run: yarn install
       - run: yarn ng build --prod
       - run: yarn ng e2e
