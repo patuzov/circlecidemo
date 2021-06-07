@@ -5,7 +5,5 @@ jobs:
       - image: circleci/node
     steps:
       - checkout # check out the code in the project directory
-      - run: 
-        command: ng e2e
-        name: "e2e test"
+      - run: e2e test
       - run: echo "hello world" # run the `echo` command
