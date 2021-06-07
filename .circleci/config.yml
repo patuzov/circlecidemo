@@ -1,9 +1,10 @@
 version: 2.1
 jobs:
-  build_and_test:
+  build:
     docker:
       - image: circleci/node
     steps:
       - checkout # check out the code in the project directory
+      - run: ng build --prod
       - run: e2e test
       - run: echo "hello world" # run the `echo` command
