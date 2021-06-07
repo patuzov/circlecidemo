@@ -8,9 +8,15 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', async () => {
+  it('should display Dev text', async () => {
     await page.navigateTo();
-    expect(await page.getTitleText()).toEqual('demo app is running!');
+    expect(await page.getTitleText()).toEqual('Dev');
+  });
+
+  it('should display Ops text after button click', async () => {
+    await page.navigateTo();
+    await page.getButton().click();
+    expect(await page.getTitleText()).toEqual('Ops');
   });
 
   afterEach(async () => {

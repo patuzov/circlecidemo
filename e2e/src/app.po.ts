@@ -1,4 +1,4 @@
-import { browser, by, element } from 'protractor';
+import { browser, by, element, ElementFinder } from 'protractor';
 
 export class AppPage {
   async navigateTo(): Promise<unknown> {
@@ -6,6 +6,10 @@ export class AppPage {
   }
 
   async getTitleText(): Promise<string> {
-    return element(by.css('app-root .content span')).getText();
+    return element(by.css('#heading')).getText();
+  }
+
+  getButton(): ElementFinder {
+    return element(by.css('#btn'));
   }
 }

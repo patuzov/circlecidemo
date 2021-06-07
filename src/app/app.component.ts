@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'demo';
+  heading = 'Dev'
+
+  onClick(): void {
+    if(this.heading === 'Dev') {
+      this.heading = 'Ops';
+    } else {
+      this.heading = 'Dev';
+    }
+  }
 }
