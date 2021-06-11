@@ -2,16 +2,16 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: circleci/node
+      - image: circleci/node:21.04-browsers
     steps:
       - checkout # check out the code in the project directory
       - run: wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
       # - run: apt-get update && apt install --yes ./google-chrome-stable_current_amd64.deb
       # - run: yarn install
-      - run: wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-      - run: sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-      - run: sudo apt-get update
-      - run: sudo apt-get install google-chrome-stable
+      # - run: wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+      # - run: sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+      # - run: sudo apt-get update
+      # - run: sudo apt-get install google-chrome-stable
       - run: yarn ng build --prod
       - run: yarn ng e2e
       - run: echo "hello world" # run the `echo` command
