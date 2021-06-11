@@ -5,6 +5,7 @@ jobs:
       - image: circleci/node:12.22.1-browsers-legacy
     steps:
       - checkout
+      - run: npm install -g @angular/cli
       - run: npm install
       - run: xvfb-run -a npm run e2e
       - run: xvfb-run -a ng build --prod
