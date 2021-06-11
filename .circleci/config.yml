@@ -12,6 +12,5 @@ jobs:
       # - run: sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
       # - run: sudo apt-get update
       # - run: sudo apt-get install google-chrome-stable
-      - run: yarn ng build --prod
-      - run: yarn ng e2e
-      - run: echo "hello world" # run the `echo` command
+      - run: npm install
+      - run: xvfb-run -a npm run e2e -- --no-progress --config=protractor-ci.conf.js
